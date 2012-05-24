@@ -1,0 +1,92 @@
+﻿@model IEnumerable<LacteosTolima.App.Models.Cow>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>List of registered cows</h2>
+
+<ul class="options">
+    @Html.ActionLink("Register New Cow", "Create") | 
+    @Html.ActionLink("Diary Production Report", "ProductionReportCowDay", new { day = new DateTime(2011, 03, 13) })
+    @using (Html.BeginForm("ProductionReportCowDay", "Cow"))
+    {
+        <span>Day: </span>
+        @Html.TextBox("dayt")
+        <span>| Month:</span> 
+        @Html.TextBox("month")
+        <span>| Year:</span> 
+        @Html.TextBox("year")
+        <input type="submit" value="Generate Production Report for the Day" />
+    }
+    @using (Html.BeginForm("ProductionReportCowMonth", "Cow"))
+    {
+        <span>| Month:</span> 
+        @Html.TextBox("month")
+        <span>| Year:</span> 
+        @Html.TextBox("year")
+        <input type="submit" value="Generate Production Report for the Month" />
+    }
+</ul>
+<table>
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Silage Amount
+        </th>
+        <th>
+            Hay Amount
+        </th>
+        <th>
+            Age
+        </th>
+        <th>
+            Commercial Assessment
+        </th>
+        <th>
+            Mother
+        </th>
+        <th>
+            Herd
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <a href="@Url.Action("Details", "Details", new { id = item.Id })">
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SilageAmout)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HayAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Age)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CommercialAssessment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mother.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Herd.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id }) |
+            @Html.ActionLink("Logic Delete", "Deactivate", new { id = item.Id })
+        </td>
+    </tr>
+    </a>
+}
+
+</table>

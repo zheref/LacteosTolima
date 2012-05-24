@@ -1,0 +1,35 @@
+﻿@model LacteosTolima.App.Models.Herd
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details of the herd number @Html.DisplayFor(model => model.Id)</h2>
+
+<fieldset>
+    <legend>Herd</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">JoinDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.JoinDate)
+    </div>
+
+    <div class="display-label">State</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.State)
+    </div>
+
+    <div class="display-label">Milker</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Milker.Name)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

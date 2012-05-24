@@ -1,0 +1,35 @@
+﻿@model LacteosTolima.App.Models.Production
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Production</legend>
+
+    <div class="display-label">Quant</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Quant)
+    </div>
+
+    <div class="display-label">Date</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Date)
+    </div>
+
+    <div class="display-label">Shift</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Shift)
+    </div>
+
+    <div class="display-label">Cow</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Cow.Name)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

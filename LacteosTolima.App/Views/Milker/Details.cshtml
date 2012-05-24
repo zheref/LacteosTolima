@@ -1,0 +1,45 @@
+﻿@model LacteosTolima.App.Models.Milker
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details of the milker number @Html.DisplayFor(model => model.Id)</h2>
+
+<fieldset>
+    <legend>Milker</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">Doc</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Doc)
+    </div>
+
+    <div class="display-label">DocType</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DocType)
+    </div>
+
+    <div class="display-label">JoinDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.JoinDate)
+    </div>
+
+    <div class="display-label">Age</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Age)
+    </div>
+
+    <div class="display-label">State</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.State)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<LacteosTolima.App.Models.ProductionReportCow>
+
+@{
+    ViewBag.Title = "ProductionReportCowMonth";
+}
+
+<h2>Production Report for each cow in the Month</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            Id of the Cow
+        </th>
+        <th>
+            Name of the Cow
+        </th>
+        <th>
+            Quanty produced in the month
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdCow)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NameCow)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quant)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

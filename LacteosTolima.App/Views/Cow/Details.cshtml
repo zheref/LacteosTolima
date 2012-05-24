@@ -1,0 +1,55 @@
+﻿@model LacteosTolima.App.Models.Cow
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details of the cow number @Html.DisplayFor(model => model.Id)</h2>
+
+<fieldset>
+    <legend>Cow</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">SilageAmout</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SilageAmout)
+    </div>
+
+    <div class="display-label">HayAmount</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.HayAmount)
+    </div>
+
+    <div class="display-label">Age</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Age)
+    </div>
+
+    <div class="display-label">CommercialAssessment</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CommercialAssessment)
+    </div>
+
+    <div class="display-label">State</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.State)
+    </div>
+
+    <div class="display-label">Mother</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Mother.Name)
+    </div>
+
+    <div class="display-label">Herd</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Herd.Name)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

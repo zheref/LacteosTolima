@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="LacteosTolima.App.Controllers.AccountController" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAgAAAAAAAAAAAAAABAAAEAAAAAAQAIAA=</HashCode>
+      <FileName>Controllers\AccountController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LacteosTolima.App.Controllers.ConsumptionController" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACARAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\ConsumptionController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LacteosTolima.App.Controllers.CowController" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAiBVAASAAAQAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\CowController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LacteosTolima.App.Controllers.HerdController" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIACAVAACAAAAAAAAAAAEAAEACAAUAAAAAAAg=</HashCode>
+      <FileName>Controllers\HerdController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LacteosTolima.App.Controllers.HomeController" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LacteosTolima.App.Controllers.MilkerController" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACARAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\MilkerController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LacteosTolima.App.Controllers.ProductionController" Collapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACARAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\ProductionController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LacteosTolima.App.MvcApplication" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAIQAAAAAAAAAA=</HashCode>
+      <FileName>Global.asax.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LacteosTolima.App.Models.ChangePasswordModel" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAEAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Models\AccountModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LacteosTolima.App.Models.LogOnModel" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAQAAAAAgAAA=</HashCode>
+      <FileName>Models\AccountModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LacteosTolima.App.Models.RegisterModel" Collapsed="true">
+    <Position X="2.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAACAQAAAAAAIAA=</HashCode>
+      <FileName>Models\AccountModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LacteosTolima.App.Models.Consumption" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAGAAAAAAAAAEACAABAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Consumption.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LacteosTolima.App.Models.ConsumptionReportCow" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQGAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Models\ConsumptionReportCow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LacteosTolima.App.Models.ConsumptionReportHerd" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAEAAAAAAAAGAAAAAAAAAAAAAAAAAAAEAAAAAE=</HashCode>
+      <FileName>Models\ConsumptionReportHerd.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LacteosTolima.App.Models.Cow" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAgAAAABCIAAGEAEAAQAAAAAAAAAAAAABACAQCA=</HashCode>
+      <FileName>Models\Cow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LacteosTolima.App.Models.CowPerHerdReport" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAQGAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Models\CowPerHerdReport.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LacteosTolima.App.Models.CowsDBContext" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAIAAAAAAAAAIABEAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Models\CowsDBContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LacteosTolima.App.Models.Herd" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAASAAAAAAAAAAEAAAgAAIQAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Models\Herd.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LacteosTolima.App.Models.Milker" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAASAAAAAAAAAAAAAEAAAAQBCAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Models\Milker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LacteosTolima.App.Models.Production" Collapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAABAAAAAgAAAAAAAAAAAEACAABAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Production.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LacteosTolima.App.Models.ProductionReportCow" Collapsed="true">
+    <Position X="7.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAQAAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>Models\ProductionReportCow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LacteosTolima.App.Models.ProductionReportHerd" Collapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAE=</HashCode>
+      <FileName>Models\ProductionReportHerd.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="LacteosTolima.App.Models.Shift" Collapsed="true">
+    <Position X="0.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Models\Production.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
