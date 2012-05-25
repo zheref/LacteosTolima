@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DNA.Mvc.jQuery">
+      <HintPath>..\..\..\..\Mis codigos\1-DESARROLLO DISCIPLINADO\NET Solutions\Prefabs\Libraries\djme_runtime_2_rc\runtime\dll\DNA.Mvc.jQuery.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll</HintPath>
     </Reference>

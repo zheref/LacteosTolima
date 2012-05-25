@@ -372,6 +372,13 @@ div#title {
 
 }
 
+.mbutton
+{
+    background: white;
+    border-style: solid;
+    border-color: black;
+}
+
 /*
 #aside
 {
