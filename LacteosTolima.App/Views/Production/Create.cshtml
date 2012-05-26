@@ -4,7 +4,7 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Register production</h2>
 
 <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
@@ -34,7 +34,24 @@
             @Html.LabelFor(model => model.Shift)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Shift)
+            @{
+                List<string> list = new List<string>();
+                list.Add("M");
+                list.Add("A");
+                IEnumerable<SelectListItem> sol = list.Select
+                    (
+                        m =>
+                            {
+                                return new SelectListItem() 
+                                {
+                                    Selected = false,
+                                    Text = m.ToString(),
+                                    Value = m.ToString()
+                                };
+                            }
+                    );
+            }
+            @Html.DropDownListFor(model => model.Shift, sol)
             @Html.ValidationMessageFor(model => model.Shift)
         </div>
 
@@ -55,3 +72,9 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#Date').datepicker({ dateFormat: '@Html.ConvertDateFormat()' });
+    });
+</script>

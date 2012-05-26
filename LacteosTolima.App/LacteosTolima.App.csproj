@@ -84,6 +84,7 @@
     <Compile Include="Models\CowPerHerdReport.cs" />
     <Compile Include="Models\CowsDBContext.cs" />
     <Compile Include="Models\Herd.cs" />
+    <Compile Include="Models\JQueryUIDatePickerHelper.cs" />
     <Compile Include="Models\Milker.cs" />
     <Compile Include="Models\Production.cs" />
     <Compile Include="Models\ProductionReportCow.cs" />
@@ -255,6 +256,7 @@
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
     <Content Include="Views\Cow\ProductionReportCowMonth.cshtml" />
+    <Content Include="Views\Herd\ProductionReportHerdDay.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
@@ -275,8 +277,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>2464</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>
-          </IISUrl>
+          <IISUrl>http://localhost/LacteosTolima.App</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

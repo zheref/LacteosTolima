@@ -49,6 +49,10 @@ namespace LacteosTolima.App.Controllers
         public ActionResult Create(Milker milker)
         {
             milker.State = "A";
+            if (ModelState.IsValidField("JoinDate") && DateTime.Now < milker.JoinDate)
+                ModelState.AddModelError("JoinDate", "Input a current or past date");
+            if (milker.Age > 60 || milker.Age < 18)
+                ModelState.AddModelError("Age", "The age of the milker is not appropiate for job");
             if (ModelState.IsValid)
             {
                 db.Milkers.Add(milker);

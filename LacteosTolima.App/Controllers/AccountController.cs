@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
 using LacteosTolima.App.Models;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace LacteosTolima.App.Controllers
 {
@@ -28,7 +30,7 @@ namespace LacteosTolima.App.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (Membership.ValidateUser(model.UserName, model.Password))
+                if (Membership.ValidateUser(model.UserName, EncodePassword(model.Password)))
                 {
                     FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
                     if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
@@ -79,7 +81,7 @@ namespace LacteosTolima.App.Controllers
             {
                 // Intento de registrar al usuario
                 MembershipCreateStatus createStatus;
-                Membership.CreateUser(model.UserName, model.Password, model.Email, null, null, true, null, out createStatus);
+                Membership.CreateUser(model.UserName, EncodePassword(model.Password), model.Email, null, null, true, null, out createStatus);
 
                 if (createStatus == MembershipCreateStatus.Success)
                 {
@@ -94,6 +96,39 @@ namespace LacteosTolima.App.Controllers
 
             // Si llegamos a este punto, es que se ha producido un error y volvemos a mostrar el formulario
             return View(model);
+        }
+
+        private string EncodePassword(string originalPassword)
+        {
+            //Declarations
+            Byte[] originalBytes;
+            Byte[] encodedBytes;
+            MD5 md5;
+
+            //Instantiate MD5CryptoServiceProvider, get bytes for original password and compute hash (encoded password)
+            md5 = new MD5CryptoServiceProvider();
+            originalBytes = ASCIIEncoding.Default.GetBytes(originalPassword);
+            
+            encodedBytes = md5.ComputeHash(originalBytes);
+
+            //Convert encoded bytes back to a 'readable' string
+            string encodedPassword =  BitConverter.ToString(encodedBytes);
+            return encodedPassword;
+        }
+
+        private string DecodePassword(string encodedPassword)
+        {
+            Byte[] originalBytes;
+            Byte[] encodedBytes;
+            MD5 md5;
+
+            //Instantiate MD5CryptoServiceProvider, get bytes for original password and compute hash (encoded password)
+            md5 = new MD5CryptoServiceProvider();
+            encodedBytes = ASCIIEncoding.Default.GetBytes(encodedPassword);
+            originalBytes = md5.ComputeHash(encodedBytes);
+            //Convert encoded bytes back to a 'readable' string
+            string decodedPassword = BitConverter.ToString(originalBytes);
+            return decodedPassword;
         }
 
         //
@@ -121,7 +156,7 @@ namespace LacteosTolima.App.Controllers
                 try
                 {
                     MembershipUser currentUser = Membership.GetUser(User.Identity.Name, true /* userIsOnline */);
-                    changePasswordSucceeded = currentUser.ChangePassword(model.OldPassword, model.NewPassword);
+                    changePasswordSucceeded = currentUser.ChangePassword(EncodePassword(model.OldPassword), EncodePassword(model.NewPassword));
                 }
                 catch (Exception)
                 {

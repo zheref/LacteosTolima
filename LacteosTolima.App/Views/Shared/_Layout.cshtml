@@ -26,13 +26,21 @@
             </div>
             <nav>
                 <ul id="menu">
-                    <li>@Html.ActionLink("Start", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Milkers", "Index", "Milker")</li>
-                    <li>@Html.ActionLink("Herds", "Index", "Herd")</li>
-                    <li>@Html.ActionLink("Cows", "Index", "Cow")</li>
-                    <li>@Html.ActionLink("Productions", "Index", "Production")</li>
-                    <li>@Html.ActionLink("Consumptions", "Index", "Consumption")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Start", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Milkers", "Index", "Milker")</li>
+                        <li>@Html.ActionLink("Herds", "Index", "Herd")</li>
+                        <li>@Html.ActionLink("Cows", "Index", "Cow")</li>
+                        <li>@Html.ActionLink("Productions", "Index", "Production")</li>
+                        <li>@Html.ActionLink("Consumptions", "Index", "Consumption")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                    }
+                    else
+                    {
+                        <br /><br />
+                        <li>@Html.ActionLink("Log In", "LogOn", "Account")</li>
+                    }
                 </ul>
             </nav>
         </header>

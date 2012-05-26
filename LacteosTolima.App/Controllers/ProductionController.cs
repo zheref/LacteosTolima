@@ -36,7 +36,10 @@ namespace LacteosTolima.App.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.CowId = new SelectList(db.Cows, "Id", "Name");
+            var cowsq = from c in db.Cows
+                        where c.State == "A"
+                        select c;
+            ViewBag.CowId = new SelectList(cowsq, "Id", "Name");
             return View();
         } 
 
@@ -46,6 +49,8 @@ namespace LacteosTolima.App.Controllers
         [HttpPost]
         public ActionResult Create(Production production)
         {
+            if (ModelState.IsValidField("Date") && DateTime.Now < production.Date)
+                ModelState.AddModelError("Date", "Input a current or past date");
             if (ModelState.IsValid)
             {
                 db.Productions.Add(production);

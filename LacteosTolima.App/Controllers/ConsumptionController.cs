@@ -46,11 +46,13 @@ namespace LacteosTolima.App.Controllers
         [HttpPost]
         public ActionResult Create(Consumption consumption)
         {
+            if (ModelState.IsValidField("Date") && DateTime.Now < consumption.Date)
+                ModelState.AddModelError("Date", "Input a current or past date");
             if (ModelState.IsValid)
             {
                 db.Consumptions.Add(consumption);
                 db.SaveChanges();
-                return RedirectToAction("Index");  
+                return RedirectToAction("Index");
             }
 
             ViewBag.CowId = new SelectList(db.Cows, "Id", "Name", consumption.CowId);

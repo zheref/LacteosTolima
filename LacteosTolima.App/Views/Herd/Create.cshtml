@@ -29,7 +29,7 @@
             @Html.EditorFor(model => model.JoinDate)
             @Html.ValidationMessageFor(model => model.JoinDate)
         </div>
-
+        <!--
         <div class="editor-label">
             @Html.LabelFor(model => model.State)
         </div>
@@ -37,7 +37,7 @@
             @Html.EditorFor(model => model.State)
             @Html.ValidationMessageFor(model => model.State)
         </div>
-
+        -->
         <div class="editor-label">
             @Html.LabelFor(model => model.MilkerId, "Milker")
         </div>
@@ -55,3 +55,9 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#JoinDate').datepicker({ dateFormat: '@Html.ConvertDateFormat()' });
+    });
+</script>

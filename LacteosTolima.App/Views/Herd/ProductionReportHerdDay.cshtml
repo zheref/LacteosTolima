@@ -1,0 +1,51 @@
+﻿@model IEnumerable<LacteosTolima.App.Models.ProductionReportHerd>
+
+@{
+    ViewBag.Title = "Report of productions of the herd in the day";
+}
+
+<h2>Report of productions of the herd in the day</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            IdHerd
+        </th>
+        <th>
+            NameHerd
+        </th>
+        <th>
+            NameOpe
+        </th>
+        <th>
+            Quant
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdHerd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NameHerd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NameOpe)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quant)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

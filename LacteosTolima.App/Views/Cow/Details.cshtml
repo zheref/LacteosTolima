@@ -49,7 +49,124 @@
         @Html.DisplayFor(model => model.Herd.Name)
     </div>
 </fieldset>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<h2>Hijas</h2>
+<table>
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Silage Amount
+        </th>
+        <th>
+            Hay Amount
+        </th>
+        <th>
+            Age
+        </th>
+        <th>
+            Herd
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.Children)
+{
+    <a href="@Url.Action("Details", "Details", new { id = item.Id })">
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SilageAmout)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HayAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Age)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Herd.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Id })
+        </td>
+    </tr>
+    </a>
+}
+
+</table>
+
+<h2>Productions of the cow</h2>
+<table>
+    <tr>
+        <th>
+            Amount
+        </th>
+        <th>
+            Date
+        </th>
+        <th>
+            Shift
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.Productions) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quant)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Shift)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
+
+<h2>Consumptions of the cow</h2>
+
+<table>
+    <tr>
+        <th>
+            Silage Consumed
+        </th>
+        <th>
+            Hay Consumed
+        </th>
+        <th>
+            Date of the consumption
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.Consumptions) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SilageAmout)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HayAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

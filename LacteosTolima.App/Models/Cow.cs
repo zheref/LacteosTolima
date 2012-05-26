@@ -70,7 +70,48 @@ namespace LacteosTolima.App.Models
         public virtual Herd Herd { set; get; }
 
         public List<Production> Productions { get; set; }   //lista de producciones de la vaca
+        public Double TotalProductions 
+        {
+            get
+            {
+                double s = 0;
+                if(Productions != null)
+                foreach (Production p in Productions)
+                {
+                    s += p.Quant;
+                }
+                return s;
+            }
+        }
 
         public List<Consumption> Consumptions { get; set; }  //lista de alimento de la vaca
+        public Double TotalSilage
+        {
+            get
+            {
+                double s = 0;
+
+                if (Consumptions != null)
+                foreach (Consumption c in Consumptions)
+                {
+                    s += c.SilageAmout;
+                }
+                return s;
+            }
+        }
+        public Double TotalHay
+        {
+            get
+            {
+                double s = 0;
+
+                if (Consumptions != null)
+                foreach (Consumption c in Consumptions)
+                {
+                    s += c.HayAmount;
+                }
+                return s;
+            }
+        }
     }
 }

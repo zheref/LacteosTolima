@@ -7,25 +7,18 @@
 <h2>List of registered cows</h2>
 
 <ul class="options">
-    @Html.ActionLink("Register New Cow", "Create") | 
-    @Html.ActionLink("Diary Production Report", "ProductionReportCowDay", new { day = new DateTime(2011, 03, 13) })
+    @Html.ActionLink("Register New Cow", "Create") |
     @using (Html.BeginForm("ProductionReportCowDay", "Cow"))
     {
-        <span>Day: </span>
-        @Html.TextBox("dayt")
-        <span>| Month:</span> 
-        @Html.TextBox("month")
-        <span>| Year:</span> 
-        @Html.TextBox("year")
-        <input type="submit" value="Generate Production Report for the Day" />
+        <span>Fecha: </span>
+        @Html.TextBox("dayp")
+        <input type="submit" value="Day Production Report" />
     }
-    @using (Html.BeginForm("ProductionReportCowMonth", "Cow"))
+    @using (Html.BeginForm("ConsumptionReportCowDay", "Cow"))
     {
-        <span>| Month:</span> 
-        @Html.TextBox("month")
-        <span>| Year:</span> 
-        @Html.TextBox("year")
-        <input type="submit" value="Generate Production Report for the Month" />
+        <span>Fecha: </span>
+        @Html.TextBox("dayc")
+        <input type="submit" value="Day Consumption Report" />
     }
 </ul>
 <table>
@@ -50,6 +43,15 @@
         </th>
         <th>
             Herd
+        </th>
+        <th>
+            Production
+        </th>
+        <th>
+            Silage Consumption
+        </th>
+        <th>
+            Hay Consumption
         </th>
         <th></th>
     </tr>
@@ -80,6 +82,15 @@
             @Html.DisplayFor(modelItem => item.Herd.Name)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.TotalProductions)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalSilage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalHay)
+        </td>
+        <td>
             @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
             @Html.ActionLink("Details", "Details", new { id = item.Id }) |
             @Html.ActionLink("Delete", "Delete", new { id = item.Id }) |
@@ -90,3 +101,10 @@
 }
 
 </table>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#dayp').datepicker({ dateFormat: '@Html.ConvertDateFormat()' });
+        $('#dayc').datepicker({ dateFormat: '@Html.ConvertDateFormat()' });
+    });
+</script>

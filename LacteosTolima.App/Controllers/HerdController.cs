@@ -41,7 +41,10 @@ namespace LacteosTolima.App.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.OpeId = new SelectList(db.Milkers, "Id", "Name");
+            var milkers = from m in db.Milkers
+                          where m.State == "A"
+                          select m;
+            ViewBag.OpeId = new SelectList(milkers, "Id", "Name");
             return View();
         } 
 
@@ -52,6 +55,8 @@ namespace LacteosTolima.App.Controllers
         public ActionResult Create(Herd herd)
         {
             herd.State = "A";
+            if (ModelState.IsValidField("JoinDate") && DateTime.Now < herd.JoinDate)
+                ModelState.AddModelError("JoinDate", "Input a current or past date");
             if (ModelState.IsValid)
             {
                 db.Herds.Add(herd);
@@ -128,57 +133,44 @@ namespace LacteosTolima.App.Controllers
             base.Dispose(disposing);
         }
 
-        public ViewResult ProductionReportHerdDay(DateTime day)
+        public ViewResult ProductionReportHerdDay(DateTime dayp)
         {
             List<ProductionReportHerd> report = new List<ProductionReportHerd>();
 
-            Herd aux = new Herd();
-
-            Milker aux1 = new Milker();
-
-            Cow aux2 = new Cow();
-
-            List<Cow> cows = new List<Cow>();
-
-            Production production = new Production();
-
-            var Herd = from h in db.Herds.ToList() select h;
-
-            var Milker = from o in db.Milkers.ToList() select o;
+            var Herd = from h in db.Herds.Include(h => h.Cows).ToList() where h.State == "A" select h;
 
             //var Cow = from c in a.Cows.ToList() select c;
 
             foreach (Herd h in Herd)
             {
                 ProductionReportHerd item = new ProductionReportHerd();
-                Double quant = new Double();
                 item.IdHerd = h.Id;
                 item.NameHerd = h.Name;
-                foreach (Milker o in Milker)
-                {
-                    aux1.Name = o.Name;
+                var milker = from m in db.Milkers.ToList()
+                             where m.Id == h.MilkerId && m.State == "A"
+                             select m;
 
-                }
-                item.NameOpe = aux1.Name;
+                Milker mi = milker.Single();
+                
+                item.NameOpe = mi.Name;
 
-                cows = h.Cows;
-
+                List<Cow> cows = h.Cows;
+                Double quant = 0.0;
                 foreach (Cow c in cows)
                 {
-                    var query = from co in db.Productions.ToList()
-                                where co.Id == c.Id && co.Date == day && c.State.Equals('A')
-                                select co;
+                    quant = new Double();
+                    var query = from pro in db.Productions.ToList()
+                                where pro.CowId == c.Id && pro.Date == dayp && c.State == "A"
+                                select pro;
 
                     foreach (Production p in query)
                     {
                         quant = quant + p.Quant;
-
                     }
 
-                    quant = quant / (query.ToList<Production>().Count);
-                    item.Quant = quant;
+                    item.Quant += quant;
                 }
-
+                if(item.Quant>0)
                 report.Add(item);
             }
 
